@@ -14,7 +14,6 @@ export default function Form5() {
     } = useForm<Inputs>()
     const onSubmit : SubmitHandler<Inputs> = (data) => console.log(data)
 
-
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <input

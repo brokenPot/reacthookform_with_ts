@@ -1,28 +1,64 @@
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm } from "react-hook-form"
+import {useEffect} from "react";
 
 
-type Inputs = {
-    example: string
-    exampleRequired: string
+type FormInputs = {
+    username: string
+    firstName: string
 }
 
 
 export default function Form1() {
     const {
         register,
+        unregister,
         handleSubmit,
+        setError,
         formState: { errors },
-    } = useForm<Inputs>()
-    const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+    } = useForm<FormInputs>()
+
+
+    const onSubmit = (data: FormInputs) => {
+        console.log(data)
+    }
+    useEffect(() => {
+        register("username")
+    }, [register])
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <input defaultValue="test" {...register("example")} />
-            </div>
-            <input {...register("exampleRequired", {required: true})} />
-                {errors.exampleRequired && <span>This field is required</span>}
-                <input type="submit"/>
+            <label>Username</label>
+            <input {...register("username" as const)} />
+            {errors.username && <p>{errors.username.message}</p>}
+            <label>First Name</label>
+            <input {...register("firstName" as const)} />
+            {errors.firstName && <p>{errors.firstName.message}</p>}
+            <button
+                type="button"
+                onClick={() => {
+                    const inputs = [
+                        {
+                            type: "manual",
+                            name: "username",
+                            message: "Double Check This",
+                        },
+                        {
+                            type: "manual",
+                            name: "firstName",
+                            message: "Triple Check This",
+                        },
+                    ]
+                    inputs.forEach(({name, type, message}:{name:"username" | "firstName" | "root" | any, type:string, message:string}) => {
+                        setError(name, {type, message})
+                    })
+                }}
+            >
+                Trigger Name Errors
+            </button>
+            <input type="submit"/>
+            <button type="button" onClick={() => unregister("username")}>
+                unregister
+            </button>
         </form>
-)
+    )
 }
