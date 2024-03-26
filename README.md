@@ -13,14 +13,11 @@
   <li>react-hook-form</li>
   <li>typeScript</li>
   <li>styled-component</li>
-</ul>
-
-<ul>
-  <li>prisma</li>
+  <li>react-dom</li>
 </ul>
 
 <h4 align="center">화면</h4>
 
 <p align="center">
-     예정 
+    <img src="https://github.com/teapotsoup/reacthookform_with_ts/assets/64897060/6e59ef88-3e90-48f6-9c11-40421e5a1286">
 </p>
