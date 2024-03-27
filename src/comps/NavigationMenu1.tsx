@@ -56,8 +56,8 @@ const Highlight = styled.span<HighlightProps>`
 
 const routes = [
     { path: '/', label: 'Form1', position: '6.6vw' },
-    { path: '/formcontext', label: 'Form2',position: '17.2vw' },
-    { path: '/none', label: 'Form3', position: '28vw' },
+    { path: '/form2', label: 'Form2',position: '17.2vw' },
+    { path: '/form3', label: 'Form3', position: '28vw' },
 ];
 
 const NavigationMenu1 = ({navwidth = '40vw', navheight = '3vw', navbackgroundcolor = '#3e3e3e', navtabfontsize = '1vw',highlighttabwidth='5.5vw',highlighttabcolorone = '#2e3192', highlighttabcolortwo = '#1bffff' }) => {
