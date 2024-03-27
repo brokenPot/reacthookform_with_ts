@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Form1 from "./forms/Form1.tsx";
-import FormContext1 from "./forms/FormContext1.tsx";
+import Form2 from "./forms/Form2.tsx";
+import Form3 from "./forms/Form3.tsx";
 import Layout from "./comps/Layout.tsx";
-import Form6 from "./forms/Form6.tsx";
 
 export default function  Router  () {
     return (
@@ -13,12 +13,12 @@ export default function  Router  () {
                 </Layout>} />
                 <Route path="/form2" element={
                     <Layout>
-                        <FormContext1 />
+                        <Form2 />
                     </Layout>
                     } />
                 <Route path="/form3" element={
                     <Layout>
-                        <Form6 />
+                        <Form3 />
                     </Layout>
                 } />
             </Routes>

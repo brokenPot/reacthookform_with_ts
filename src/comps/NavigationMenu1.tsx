@@ -4,16 +4,16 @@ import {Link, useLocation} from 'react-router-dom';
 
 
 interface navProps {
-    navwidth:string,
-    navheight:string,
-    navbackgroundcolor:string,
+    $navwidth:string,
+    $navheight:string,
+    $navbackgroundcolor:string,
 }
 
 const Nav = styled.nav<navProps>`
   position: relative;
-  width: ${props => props.navwidth};// 프롭스 대상
-  height: ${props => props.navheight}; // 프롭스 대상
-  background: ${props => props.navbackgroundcolor}; // 프롭스 대상
+  width: ${props => props.$navwidth};// 프롭스 대상
+  height: ${props => props.$navheight}; // 프롭스 대상
+  background: ${props => props.$navbackgroundcolor}; // 프롭스 대상
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   display: flex;
@@ -22,9 +22,9 @@ const Nav = styled.nav<navProps>`
     padding: 0.5vw;
 `;
 
-const NavLink = styled(Link)<{navtabfontsize : string}>`
+const NavLink = styled(Link)<{$navtabfontsize : string}>`
   position: relative;
-  font-size: ${props => props.navtabfontsize}; // 프롭스 대상
+  font-size: ${props => props.$navtabfontsize}; // 프롭스 대상
   color: #fff;
   text-decoration: none;
   padding: 1vw;
@@ -39,17 +39,17 @@ const NavLink = styled(Link)<{navtabfontsize : string}>`
 `;
 
 interface HighlightProps {
-    highlighttabwidth:string,
-    highlighttabcolorone:string,
-    highlighttabcolortwo:string,
+    $highlighttabwidth:string,
+    $highlighttabcolorone:string,
+    $highlighttabcolortwo:string,
 }
 
 const Highlight = styled.span<HighlightProps>`
   position: absolute;
   top: 0;
   height: 100%;
-  width: ${props => props.highlighttabwidth};
-  background:  linear-gradient(45deg, ${(props) => props.highlighttabcolorone}, ${(props) => props.highlighttabcolortwo});
+  width: ${props => props.$highlighttabwidth};
+  background:  linear-gradient(45deg, ${(props) => props.$highlighttabcolorone}, ${(props) => props.$highlighttabcolortwo});
   border-radius: 8px;
   transition: left 0.5s ease;
 `;
@@ -85,13 +85,13 @@ const NavigationMenu1 = ({navwidth = '40vw', navheight = '3vw', navbackgroundcol
     return (
         <>
             <NavWrapper>
-                <Nav navwidth = {navwidth} navheight = {navheight} navbackgroundcolor = {navbackgroundcolor} >
+                <Nav $navwidth = {navwidth} $navheight = {navheight} $navbackgroundcolor = {navbackgroundcolor} >
                     {routes.map((route) => (
-                        <NavLink navtabfontsize={navtabfontsize} key={route.path} to={route.path} onMouseEnter={() => handleHover(route)}>
+                        <NavLink $navtabfontsize={navtabfontsize} key={route.path} to={route.path} onMouseEnter={() => handleHover(route)}>
                             {route.label}
                         </NavLink>
                     ))}
-                    <Highlight highlighttabwidth={highlighttabwidth} highlighttabcolorone={highlighttabcolorone} highlighttabcolortwo={highlighttabcolortwo} style={{ left: `${highlightRoute.position}` }} />
+                    <Highlight $highlighttabwidth={highlighttabwidth} $highlighttabcolorone={highlighttabcolorone} $highlighttabcolortwo={highlighttabcolortwo} style={{ left: `${highlightRoute.position}` }} />
                 </Nav>
             </NavWrapper>
         </>

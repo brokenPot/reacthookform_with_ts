@@ -3,7 +3,7 @@ import {FieldValues, SubmitHandler, useForm} from "react-hook-form";
 import {CustomBtn} from "../comps/Comps.tsx";
 
 
-function Form6() {
+function Form3() {
     const {
         register,
         getValues,
@@ -78,4 +78,4 @@ function Form6() {
     );
 }
 
-export default Form6;
+export default Form3;
